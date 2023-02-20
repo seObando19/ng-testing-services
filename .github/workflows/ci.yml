@@ -1,0 +1,21 @@
+# aqui estamos configurando todo los recursos y instrucciones que necesitan  para correr
+# mis pruebas con github actions
+
+# Optional name (CI for Angular)
+name: CI for Angular
+on: push
+jobs:
+  # Optional name (unit-test)
+  unit-test:
+    runs-on: Ubuntu-latest
+    steps:
+      - name: Clone
+        uses: actions/checkout@v2
+      - name: Node Setup
+        uses: actions/setup-node@v2
+        width:
+          node-version: 14.x
+      - name: Install dependencies
+        run: npm ci
+      - name: run tests
+        run: ng test --no-watch --code-coverage --browsers=ChromeHeadlessCI
