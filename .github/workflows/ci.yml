@@ -18,4 +18,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: run tests
-        run: ng test --no-watch --code-coverage --browsers=ChromeHeadlessCI
+        #ng es un comando global que solo se crea si corremos ng i g @angular/cli
+        # 1- forma npx ng test / 2- npm test
+        run: npm run test -- --no-watch --code-coverage --browsers=ChromeHeadlessCI
